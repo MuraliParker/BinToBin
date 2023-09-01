@@ -1,0 +1,96 @@
+<mvc:View controllerName="bintobin.bin.to.bin.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:ndc="sap.ndc" xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox id="V1" class="sapUiSmallMargin">
+                <f:SimpleForm
+                    id="SimpleFormChange354"
+                    title="{i18n>formTitle}"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="true"
+                >
+                    <f:content>
+                        <Label text="Process Type" required="true" />
+                        <Input id="inProcType" value="{/Procty}" type="Text" maxLength="4" />
+
+                        <Label text="Source Bin" required="true" />
+                        <Input id="inSourceBin" value="{/Vlpla}" maxLength="18" />
+                        <!-- <ndc:BarcodeScannerButton
+                                id="sourceBin"
+                                scanSuccess="onScanSuccess"
+                                scanFail="onScanError"
+                                inputLiveUpdate="onScanLiveupdate"
+                                dialogTitle="Barcode Scanner for Source Bin"
+                                
+                            >
+                            <ndc:layoutData>
+                                <l:GridData span="XL2 L1 M3 S4" />
+                            </ndc:layoutData>
+                            </ndc:BarcodeScannerButton> -->
+
+                        <Label text="Product" required="true" />
+                        <Input id="inProd" value="{/PRODUCT}" maxLength="40" change="onChange" />
+
+                        <!-- <ndc:BarcodeScannerButton
+                                id="prod"
+                                scanSuccess="onScanSuccess"
+                                scanFail="onScanError"
+                                inputLiveUpdate="onScanLiveupdate"
+                                dialogTitle="Barcode Scanner for Product"
+                                
+                            >
+                                    <ndc:layoutData>
+                                        <l:GridData span="XL2 L1 M3 S4" />
+                                    </ndc:layoutData>
+                            </ndc:BarcodeScannerButton> -->
+
+                        <Label text="Destination Bin" required="true" />
+                        <Input id="inDestBin" value="{/NLPLA}" maxLength="18" />
+                        <!-- <ndc:BarcodeScannerButton
+                                id="distrBin"
+                                scanSuccess="onScanSuccess"
+                                scanFail="onScanError"
+                                inputLiveUpdate="onScanLiveupdate"
+                                dialogTitle="Barcode Scanner for Destination Bin"
+                                
+                            >
+                                    <ndc:layoutData>
+                                        <l:GridData span="XL2 L1 M3 S4" />
+                                    </ndc:layoutData>
+                            </ndc:BarcodeScannerButton> -->
+
+                        <Label text="Order quantity" required="true" />
+                        <Input value="{/Reqqty}" type="Text" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <Button
+                    id="messageViewBtn"
+                    visible="{= ${message>/length}  > 0 ? true : false }"
+                    icon="{ path: 'message>/', formatter: '.buttonIconFormatter' }"
+                    type="{ path: 'message>/', formatter: '.buttonTypeFormatter' }"
+                    text="{path: 'message>/', formatter: '.highestSeverityMessages' }"
+                    press=".handleMessageViewPress"
+                />
+                <ToolbarSpacer />
+                <ToolbarSpacer />
+                <Button text="{i18n>execute}" press="onExecute" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

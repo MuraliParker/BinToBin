@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+#1. DEWK900874
+
+specVersion: "2.5"
+metadata:
+  name: bintobin.bin.to.bin
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: DEWDEV
+          url: http://parkerdewvm:8001
+        app:
+          name: ZWHSBINTOBIN
+          description: Bin to Bin Transfer
+          package: ZFIORI
+          transport: DEWK900957
